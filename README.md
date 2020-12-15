@@ -1,14 +1,14 @@
 <h3>Hii there👋</h3>
-<h2>I am [Imran Nazir](https://https://imrannazir.herokuapp.com/)😃</h2>
+<h2>I am [Imran Nazir](https://https://imrannazir.herokuapp.com/) 😃</h2>
 
 <a href="https://github.com/the-cross-art">
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=github"/>
 </a>
-<a href="https://www.linkedin.com/in/imran-nazir-692abb112/">
-  <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=linkedin"/>
-</a>
 <a href="https://www.instagram.com/_its.imran__/">
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=instagram"/>
+</a>
+<a href="https://www.linkedin.com/in/imran-nazir-692abb112/">
+  <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=linkedin"/>
 </a>
 
 #### I am 2nd year undergraduate student at BIT Sindri. I am Django Developer and Competitive Programmer👩‍💻.
@@ -23,7 +23,7 @@
 <br>
 <h2 align="left">Tech Stack</h2>
 <p align="left">
-<img src="https://cpng.pikpng.com/pngl/s/204-2047555_datei-java-logo-svg-java-logo-svg-clipart.png" alt="cplusplus" width="40" height="40"/> 
+<img src="https://seeklogo.com/images/J/java-logo-7F8B35BAB3-seeklogo.com.png" alt="cplusplus" width="40" height="40"/> 
 <img src="https://devicons.github.io/devicon/devicon.git/icons/django/django-original.svg" alt="django" width="40" height="40"/> 
 <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="djangorestframework" width="60" height="40"/>
 <img src="https://devicons.github.io/devicon/devicon.git/icons/python/python-original.svg" alt="python" width="40" height="40"/> 
@@ -41,3 +41,9 @@
 <a href="https://github.com/the-cross-art">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" align="center"/>
 </a>
+
+### Contact with me
+
+<a href="mailto:imram.nazir.286@gmail.com"><img align="left" alt="Imran | Mail" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" /></a>
+<a href="https://www.linkedin.com/in/imran-nazir-692abb112/"><img align="left" alt="Imran | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" /></a>
+<a href="https://github.com/the-cross-art"><img align="left" alt="Imran | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a>
