@@ -13,7 +13,7 @@
 
 #### I am 2nd year undergraduate student at BIT Sindri. I am Django Developer and Competitive Programmer👩‍💻.
 
-<img align="right" alt="GIF" src="https://i.gifer.com/5eKX.gif" width="400px"/>
+<img align="right" alt="GIF" src="https://user-images.githubusercontent.com/63959831/102273205-faed0f80-3f47-11eb-82c8-f567792823ab.gif" width="400px"/>
 
 - 🔭 I’m currently working on **Personal Projects**. 
 - 🌱 I’m currently focusing on **Data structure and Algorithms** and learning **competitive coding**.
