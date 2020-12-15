@@ -1,5 +1,5 @@
 <h3>Hii there👋</h3>
-##I am [Imran Nazir](https://imrannazir.herokuapp.com/) 😃
+<h1>I am Imran Nazir 😃</h1>
 
 <a href="https://github.com/the-cross-art">
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=github"/>
