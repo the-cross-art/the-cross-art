@@ -19,6 +19,7 @@
 - 🌱 I’m currently focusing on **Data structure and Algorithms** and learning **competitive coding**.
 - 👯 I’d like to collaborate on **MERN/Django** based projects.
 - 📫 How to reach me **imram.nazir.286@gmail.com**
+- ⚡ Fun fact: **Civil Engineering** is tough!!
 
 <br>
 <h2 align="left">Tech Stack</h2>
