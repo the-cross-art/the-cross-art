@@ -43,6 +43,9 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" align="center"/>
 </a>
 
+### 🎶 Escutando:
+[![Spotify](https://now-playing-codestackr.vercel.app/api/spotify-playing)](https://open.spotify.com/user/x9ti5be2z5apnf43emvigcr17)
+
 ### Contact with me
 
 <a href="mailto:imram.nazir.286@gmail.com"><img align="left" alt="Imran | Mail" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" /></a>
