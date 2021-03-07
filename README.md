@@ -1,4 +1,4 @@
-<h3>Hii there👋</h3>
+<h3>Hii there<img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Hi.gif" width="29px"></h3>
 <h1>I am Imran Nazir 😃</h1>
 
 <a href="https://github.com/the-cross-art">
