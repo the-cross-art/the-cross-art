@@ -36,7 +36,7 @@
 <img src="https://download.logo.wine/logo/PostgreSQL/PostgreSQL-Logo.wine.png" alt="mysql" width="40" height="40"/> 
 <img src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png" alt="c" width="40" height="40"/>
   <img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png" alt="c" width="40" height="40"/> 
-  <img src="http://assets.stickpng.com/images/58480a44cef1014c0b5e4917.png" alt="c" width="40" height="40"/> 
+  <img src="https://png.pngitem.com/pimgs/s/107-1072041_kubernetes-logo-png-transparent-png.png" alt="c" width="80" height="40"/> 
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="c" width="40" height="40"/> 
 </p>
 <a href="https://github.com/the-cross-art">
