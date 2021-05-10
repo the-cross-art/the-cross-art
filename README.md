@@ -34,7 +34,8 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Javascript-shield.svg/1200px-Javascript-shield.svg.png" alt="javascript" width="40" height="40"/> 
 <img src="https://www.vectorlogo.zone/logos/mysql/mysql-official.svg" alt="mysql" width="40" height="40"/> 
 <img src="https://download.logo.wine/logo/PostgreSQL/PostgreSQL-Logo.wine.png" alt="mysql" width="40" height="40"/> 
-<img src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png" alt="c" width="40" height="40"/> 
+<img src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png" alt="c" width="40" height="40"/>
+  <img src="https://icon2.cleanpng.com/20180629/kz/kisspng-docker-logo-kubernetes-software-deployment-engineer-logo-5b3616d6abce13.6733351915302714467037.jpg" alt="c" width="40" height="40"/> 
 </p>
 <a href="https://github.com/the-cross-art">
   <img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&count_private=true" align="center"/>
