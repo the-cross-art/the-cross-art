@@ -1,5 +1,5 @@
 <h3>Hii there<img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Hi.gif" width="29px"></h3>
-<h1>I am Imran Nazir 😃</h1>
+<h1>I am Imran Nazir <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/></h1>
 
 <a href="https://github.com/the-cross-art">
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=github"/>
