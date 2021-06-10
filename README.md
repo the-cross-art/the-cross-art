@@ -38,8 +38,8 @@
   <img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png" alt="c" width="40" height="40"/> 
   <img src="https://png.pngitem.com/pimgs/s/107-1072041_kubernetes-logo-png-transparent-png.png" alt="c" width="80" height="40"/> 
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="c" width="40" height="40"/> 
-  <img src="https://download.logo.wine/logo/Google_Cloud_Platform/Google_Cloud_Platform-Logo.wine.png" alt="c"  height="40"/> 
-  <img src="https://banner2.cleanpng.com/20180609/fe/kisspng-firebase-cloud-messaging-google-cloud-messaging-api-as-a-service-5b1bf782ded510.0849635015285594909127.jpg" alt="c"  height="40"/> 
+  <img src="https://www.freecodecamp.org/news/content/images/2020/10/gcp.png" alt="c"  height="40"/> 
+  <img src="https://img.icons8.com/color/452/firebase.png" alt="c"  height="40"/> 
   
 </p>
 <a href="https://github.com/the-cross-art">
