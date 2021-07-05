@@ -15,7 +15,7 @@
 
 <img align="right" alt="GIF" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" width="400px"/>
 
-- 🔭 I’m currently working on **Personal Projects**. 
+- 🔭 I’m currently working on **Personal & Proffesional Projects**. 
 - 🌱 I’m currently focusing on **Data structure and Algorithms** and learning **competitive coding**.
 - 👯 I’d like to collaborate on **MERN/Django** based projects.
 - 📫 How to reach me **imram.nazir.286@gmail.com**
