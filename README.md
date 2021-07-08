@@ -40,6 +40,8 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="c" width="40" height="40"/> 
   <img src="https://www.freecodecamp.org/news/content/images/2020/10/gcp.png" alt="c"  height="40"/> 
   <img src="https://img.icons8.com/color/452/firebase.png" alt="c"  height="40"/> 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="c"  height="40"/> 
+  
   
 </p>
 <a href="https://github.com/the-cross-art">
