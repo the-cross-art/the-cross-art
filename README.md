@@ -13,7 +13,7 @@
 
 #### I am 2nd year undergraduate student at BIT Sindri. I am MERN & Django Developer and Competitive Programmer👩‍💻.
 
-<img align="right" alt="GIF" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" width="400px"/>
+<img align="right" alt="GIF" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621705542437/4shUyEk2t.gif" width="400px"/>
 
 - 🔭 I’m currently working on **Personal & Proffesional Projects**. 
 - 🌱 I’m currently focusing on **Data structure and Algorithms** and learning **competitive coding**.
