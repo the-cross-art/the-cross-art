@@ -21,6 +21,8 @@
 - 📫 How to reach me **imram.nazir.286@gmail.com**
 - ⚡ Fun fact: **Civil Engineering** is tough!!
 
+#### JAVASCRIPT IS ❤️❤️❤️!!
+
 <br>
 <h2 align="left">Tech Stack</h2>
 <p align="left">
