@@ -47,7 +47,7 @@
   
 </p>
 <a href="https://github.com/the-cross-art">
-  <img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&count_private=true" align="center" style="max-width: 50%"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&count_private=true" align="center" style="max-width:50%"/>
 </a>
 <a href="https://github.com/the-cross-art">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" align="center"/>
