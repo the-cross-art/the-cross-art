@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=linkedin"/>
 </a>
 
-#### I am 2nd year undergraduate student at BIT Sindri. I am MERN & Django Developer and Competitive Programmer👩‍💻.
+#### I am Final year undergraduate student at BIT Sindri. I am MERN & Django Developer and Competitive Programmer👩‍💻.
 
 <img align="right" alt="GIF" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621705542437/4shUyEk2t.gif" width="400px"/>
 
