@@ -57,10 +57,6 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" width="350"/>
 </a>
 </p>
-
-<p align='center'>
-  Do you like my open source projects? <a href='https://stars.github.com/nominate/'>Nominate me to Github Stars ⭐</a>
-</p>
     
   </div>
   </div>
@@ -71,3 +67,8 @@
 <a href="mailto:imram.nazir.286@gmail.com"><img align="left" alt="Imran | Mail" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" /></a>
 <a href="https://www.linkedin.com/in/imran-nazir-692abb112/"><img align="left" alt="Imran | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" /></a>
 <a href="https://github.com/the-cross-art"><img align="left" alt="Imran | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a>
+
+
+<p align='center'>
+  Do you like my open source projects? <a href='https://stars.github.com/nominate/'>Nominate me to Github Stars ⭐</a>
+</p>
