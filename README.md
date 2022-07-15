@@ -11,12 +11,13 @@
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=linkedin"/>
 </a>
 
-#### I am Final year undergraduate student at BIT Sindri. I am MERN & Django Developer and Competitive Programmer👩‍💻.
+#### I am Final year undergraduate student at BIT Sindri. I am a MLOps Evangelist, Developer Advocate🥑 CoudOps☁ and DevOps Specialist and love to integrate these technologies to create projects and document it. Automation is a future and I'm contributing to the future by MLOps to make jobs of Data Scientist easy💻.
 
 <img align="right" alt="GIF" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621705542437/4shUyEk2t.gif" width="400px"/>
 
-- 🔭 I’m currently working on **Personal & Professional Projects**. 
-- 🌱 I’m currently focusing on **Data structure and Algorithms** and learning **competitive coding**.
+## 🧐 About
+- 🔭 MLOPs & Data Engineer Intern @Episource
+- 🏄‍ Actively contributing to various organisations and Open-Source Projects.
 - 👯 I’d like to collaborate on **MERN/Django** based projects.
 - 📫 How to reach me **imram.nazir.286@gmail.com**
 - ⚡ Fun fact: **Civil Engineering** is tough!!
@@ -43,15 +44,18 @@
   <img src="https://www.freecodecamp.org/news/content/images/2020/10/gcp.png" alt="c"  height="40"/> 
   <img src="https://img.icons8.com/color/452/firebase.png" alt="c"  height="40"/> 
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="c"  height="40"/> 
-  
-  
 </p>
+
+---
+
+<p align='center'>
+  <a href="#"><img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&show_icons=true&count_private=true&theme=dark" width="350"></a>
+</p>
+<p align='center'>
 <a href="https://github.com/the-cross-art">
-  <img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&count_private=true" align="center"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" width="350"/>
 </a>
-<a href="https://github.com/the-cross-art">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" align="center"/>
-</a>
+</p>
 
 
 ### Contact with me <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Handshake.gif" height="32px">
