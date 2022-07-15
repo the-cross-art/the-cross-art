@@ -19,7 +19,7 @@
 - 🔭 MLOPs & Data Engineer Intern @Episource
 - 🏄‍ Actively contributing to various organisations and Open-Source Projects.
 - 👯 I’d like to collaborate on **MERN/Django** based projects.
-- 📫 How to reach me **imram.nazir.286@gmail.com**
+- 📫 How to reach me **imrannaz326@gmail.com**
 - ⚡ Fun fact: **Civil Engineering** is tough!!
 
 #### JAVASCRIPT IS ❤️❤️❤️!!
@@ -48,13 +48,17 @@
 
 ---
 
-<p align='center'>
+<p align='left'>
   <a href="#"><img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&show_icons=true&count_private=true&theme=dark" width="350"></a>
 </p>
-<p align='center'>
+<p align='right'>
 <a href="https://github.com/the-cross-art">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" width="350"/>
 </a>
+</p>
+
+<p align='center'>
+  Do you like my open source projects? <a href='https://stars.github.com/nominate/'>Nominate me to Github Stars ⭐</a>
 </p>
 
 
