@@ -11,12 +11,12 @@
   <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=linkedin"/>
 </a>
 
-#### I am Final year undergraduate student at BIT Sindri. I am a MLOps Evangelist, Developer Advocate🥑 CoudOps☁ and DevOps Specialist and love to integrate these technologies to create projects and document it. Automation is a future and I'm contributing to the future by MLOps to make jobs of Data Scientist easy💻.
+#### I am a MLOps Evangelist, Developer Advocate🥑 CoudOps☁ and DevOps Specialist and love to integrate these technologies to create projects and document it. Automation is a future and I'm contributing to the future by MLOps to make jobs of Data Scientist easy💻.
 
 <img align="right" alt="GIF" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621705542437/4shUyEk2t.gif" width="400px"/>
 
 ## 🧐 About
-- 🔭 MLOPs & Data Engineer Intern @Episource
+- 🔭 MLOPs Engineer Optum
 - 🏄‍ Actively contributing to various organisations and Open-Source Projects.
 - 👯 I’d like to collaborate on **MERN/Django** based projects.
 - 📫 How to reach me **imrannaz326@gmail.com**
