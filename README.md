@@ -47,19 +47,6 @@
 </p>
 
 ---
-<div align="center">
-  <div style="display: flex; align-items: flex-start;">
-<p>
-  <a href="#"><img src="https://github-readme-stats.vercel.app/api?username=the-cross-art&show_icons=true&count_private=true&theme=dark" width="350"></a>
-</p>
-<p>
-<a href="https://github.com/the-cross-art">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-cross-art&layout=compact" width="350"/>
-</a>
-</p>
-    
-  </div>
-  </div>
 
 
 ### Contact with me <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Handshake.gif" height="32px">
