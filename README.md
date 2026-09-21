@@ -1,61 +1,91 @@
-<h3>Hii there<img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Hi.gif" width="29px"></h3>
-<h1>I am Imran Nazir <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/></h1>
+<div align="center">
 
-<a href="https://github.com/the-cross-art">
-  <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=github"/>
-</a>
-<a href="https://www.instagram.com/_its.imran__/">
-  <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=instagram"/>
-</a>
-<a href="https://www.linkedin.com/in/imran-nazir-692abb112/">
-  <img src="https://img.shields.io/badge/@imran-30302f?style=flat&logo=linkedin"/>
-</a>
+# Imran Nazir
 
-#### I am a MLOps Evangelist, Developer Advocate🥑 CoudOps☁ and DevOps Specialist and love to integrate these technologies to create projects and document it. Automation is a future and I'm contributing to the future by MLOps to make jobs of Data Scientist easy💻.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&pause=1200&color=58A6FF&center=true&vCenter=true&width=650&lines=AI+Applied+Engineer+II+%40+QuillBot+(Learneo);Building+GPU+Inference+Infra+at+Scale;LLM+Serving+%C2%B7+vLLM+%C2%B7+SGLang+%C2%B7+Triton;Civil+Engineer+%E2%86%92+ML+Systems+Engineer)](https://meimran.netlify.app/)
 
-<img align="right" alt="GIF" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621705542437/4shUyEk2t.gif" width="400px"/>
+[![Portfolio](https://img.shields.io/badge/Portfolio-meimran.netlify.app-0A0A0A?style=flat-square&logo=vercel&logoColor=white)](https://meimran.netlify.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-the--cross--art-0A0A0A?style=flat-square&logo=github&logoColor=white)](https://github.com/the-cross-art)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-meimran-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/meimran/)
+[![Medium](https://img.shields.io/badge/Medium-%40imrannaz326-12100E?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@imrannaz326)
+[![Email](https://img.shields.io/badge/Email-imrannaz326%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:imrannaz326@gmail.com)
 
-## 🧐 About
-- 🔭 MLOPs Engineer Optum
-- 🏄‍ Actively contributing to various organisations and Open-Source Projects.
-- 👯 I’d like to collaborate on **MERN/Django** based projects.
-- 📫 How to reach me **imrannaz326@gmail.com**
-- ⚡ Fun fact: **Civil Engineering** is tough!!
+</div>
 
-#### JAVASCRIPT IS ❤️❤️❤️!!
+## About
 
-<br>
-<h2 align="left">Tech Stack</h2>
-<p align="left">
-<img src="https://seeklogo.com/images/J/java-logo-7F8B35BAB3-seeklogo.com.png" alt="cplusplus" width="40" height="40"/> 
-<img src="https://img.favpng.com/20/6/19/django-python-computer-icons-logo-portable-network-graphics-png-favpng-fmTDmunynSK52axsEWGWJeDad.jpg" alt="django" width="40" height="40"/> 
-<img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="djangorestframework" width="60" height="40"/>
-<img src="https://seeklogo.net/wp-content/uploads/2020/12/python-logo.png" alt="python" width="40" height="40"/> 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/600px-HTML5_Badge.svg.png" alt="html5" width="40" height="40"/> 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/1200px-CSS.3.svg.png" alt="css3" width="40" height="40"/> 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png" alt="bulma" width="40" height="40"/> 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Javascript-shield.svg/1200px-Javascript-shield.svg.png" alt="javascript" width="40" height="40"/> 
-<img src="https://www.vectorlogo.zone/logos/mysql/mysql-official.svg" alt="mysql" width="40" height="40"/> 
-<img src="https://download.logo.wine/logo/PostgreSQL/PostgreSQL-Logo.wine.png" alt="mysql" width="40" height="40"/> 
-<img src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png" alt="c" width="40" height="40"/>
-  <img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png" alt="c" width="40" height="40"/> 
-  <img src="https://png.pngitem.com/pimgs/s/107-1072041_kubernetes-logo-png-transparent-png.png" alt="c" width="80" height="40"/> 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="c" width="40" height="40"/> 
-  <img src="https://www.freecodecamp.org/news/content/images/2020/10/gcp.png" alt="c"  height="40"/> 
-  <img src="https://img.icons8.com/color/452/firebase.png" alt="c"  height="40"/> 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="c"  height="40"/> 
-</p>
+I design and operate the infrastructure that serves LLMs at production scale — currently supporting **50M+ users** as an AI Applied Engineer at QuillBot (Learneo). My work sits at the intersection of GPU inference internals, distributed systems, and ML platform engineering.
 
----
+Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into ML systems through self-directed study and have since focused on the operational side of AI: making inference fast, reliable, and cheap at scale.
 
+## Research & Focus Areas
 
-### Contact with me <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Handshake.gif" height="32px">
+- **LLM serving at scale** — throughput/latency trade-offs across vLLM, SGLang, and Triton Inference Server
+- **GPU inference internals** — batching strategies, KV-cache management, capacity-aware scheduling
+- **ML systems architecture** — designing platforms that stay reliable under production load
+- **Kubernetes-native orchestration** for asynchronous, high-throughput inference workloads
 
-<a href="mailto:imram.nazir.286@gmail.com"><img align="left" alt="Imran | Mail" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" /></a>
-<a href="https://www.linkedin.com/in/imran-nazir-692abb112/"><img align="left" alt="Imran | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" /></a>
-<a href="https://github.com/the-cross-art"><img align="left" alt="Imran | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a>
+## Currently Building
 
+- **Rengoku** — a production Kubernetes sidecar for asynchronous LLM inference, processing 5,000+ pages per batch
+- A **RAG system** with LangGraph-based stateful reasoning
+- A **medallion lakehouse pipeline** on Databricks for large-scale data curation
 
-<p align='center'>
-  Do you like my open source projects? <a href='https://stars.github.com/nominate/'>Nominate me to Github Stars ⭐</a>
-</p>
+## Tech Stack
+
+**LLM Serving & Inference**
+
+![vLLM](https://img.shields.io/badge/vLLM-000000?style=flat-square) ![SGLang](https://img.shields.io/badge/SGLang-000000?style=flat-square) ![Triton Inference Server](https://img.shields.io/badge/Triton_Inference_Server-76B900?style=flat-square&logo=nvidia&logoColor=white) ![Ray Serve](https://img.shields.io/badge/Ray_Serve-028CF0?style=flat-square&logo=ray&logoColor=white) ![SageMaker](https://img.shields.io/badge/SageMaker-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
+
+**Orchestration & Infrastructure**
+
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white) ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+
+**Data Engineering**
+
+![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white) ![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white) ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white) ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat-square&logo=databricks&logoColor=white) ![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
+
+**ML / AI**
+
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black) ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square) ![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square) ![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white)
+
+**Languages**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+
+## GitHub Stats
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=the-cross-art&show_icons=true&theme=tokyonight&hide_border=true&count_private=true">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=the-cross-art&show_icons=true&theme=default&hide_border=true&count_private=true">
+  <img alt="GitHub Stats" src="https://github-readme-stats-eight-theta.vercel.app/api?username=the-cross-art&show_icons=true&theme=default&hide_border=true&count_private=true" height="165"/>
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=the-cross-art&layout=compact&theme=tokyonight&hide_border=true">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=the-cross-art&layout=compact&theme=default&hide_border=true">
+  <img alt="Top Languages" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=the-cross-art&layout=compact&theme=default&hide_border=true" height="165"/>
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=the-cross-art&theme=tokyonight&hide_border=true">
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=the-cross-art&theme=default&hide_border=true">
+  <img alt="GitHub Streak" src="https://streak-stats.demolab.com?user=the-cross-art&theme=default&hide_border=true" height="165"/>
+</picture>
+
+</div>
+
+## Education
+
+**B.Tech, Civil Engineering** — BIT Sindri, Dhanbad · 2019–2023 · CGPA 8.99
+
+## Connect
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/Read_more_at_meimran.netlify.app-black?style=for-the-badge&logo=vercel&logoColor=white)](https://meimran.netlify.app/)
+
+![Profile Views](https://komarev.com/ghpvc/?username=the-cross-art&color=58A6FF&style=flat-square&label=Profile+Views)
+
+</div>
