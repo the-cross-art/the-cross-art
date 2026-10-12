@@ -28,20 +28,38 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 - **ML systems architecture** — designing platforms that stay reliable under production load
 - **Kubernetes-native orchestration** for asynchronous, high-throughput inference workloads
 
-## Currently Building
-
-- **Rengoku** — a production Kubernetes sidecar for asynchronous LLM inference, processing 5,000+ pages per batch
-- A **RAG system** with LangGraph-based stateful reasoning
-- A **medallion lakehouse pipeline** on Databricks for large-scale data curation
-
-## Open-Source Impact
+## Featured Collaborations
 
 While adding UMT5 inference support to CTranslate2, I hit a numerical mismatch against Hugging Face's output — tracing it to its root cause meant fixing a bug upstream in `transformers` itself, closing the loop across both projects.
 
-| Project | Contribution | Impact |
-|---|---|---|
-| [🤗 transformers](https://github.com/huggingface/transformers) | [#49135](https://github.com/huggingface/transformers/pull/49135) — fixed UMT5 decoder self-attention not being causal under SDPA | Root-caused a correctness regression (introduced in #47014) silently affecting `Seq2SeqTrainer`-based training/eval for every UMT5 model since v5.15; verified fix cut logit drift from ~1e-1 to ~2e-6 |
-| [OpenNMT / CTranslate2](https://github.com/OpenNMT/CTranslate2) | [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — added UMT5 inference support (per-layer relative attention bias) | Closed a 2+ year open feature request by detecting per-layer vs. shared bias layout at conversion time, with zero regression to existing T5/mT5 models; validated on a 2.9B-parameter checkpoint |
+<table>
+<tr>
+<td width="72" align="center"><img src="https://github.com/huggingface.png" width="56" height="56"/></td>
+<td>
+
+**🤗 Hugging Face — `transformers`**  
+*Correctness · SDPA attention · seq2seq training*
+
+Fixed a decoder self-attention bug in UMT5 that silently broke causality under SDPA — a regression affecting `Seq2SeqTrainer`-based training/eval for every UMT5 model since v5.15. Verified fix cut logit drift from ~1e-1 to ~2e-6.
+
+[View work →](https://github.com/huggingface/transformers/pull/49135)
+
+</td>
+</tr>
+<tr>
+<td width="72" align="center"><img src="https://github.com/OpenNMT.png" width="56" height="56"/></td>
+<td>
+
+**OpenNMT — `CTranslate2`**  
+*Inference runtime · model conversion · C++*
+
+Added UMT5 inference support by detecting per-layer vs. shared relative-attention-bias layout at conversion time — closing a 2+ year open feature request with zero regression to existing T5/mT5 models. Validated on a 2.9B-parameter checkpoint.
+
+[View work →](https://github.com/OpenNMT/CTranslate2/pull/2103)
+
+</td>
+</tr>
+</table>
 
 **How I contribute:** trace numerical discrepancies to their root cause instead of patching symptoms · back fixes with reproducible, quantitative evidence · keep changes narrowly scoped and backward-compatible.
 
@@ -66,29 +84,6 @@ While adding UMT5 inference support to CTranslate2, I hit a numerical mismatch a
 **Languages**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
-
-## GitHub Stats
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=the-cross-art&show_icons=true&theme=tokyonight&hide_border=true&count_private=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=the-cross-art&show_icons=true&theme=default&hide_border=true&count_private=true">
-  <img alt="GitHub Stats" src="https://github-readme-stats-eight-theta.vercel.app/api?username=the-cross-art&show_icons=true&theme=default&hide_border=true&count_private=true" height="165"/>
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=the-cross-art&layout=compact&theme=tokyonight&hide_border=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=the-cross-art&layout=compact&theme=default&hide_border=true">
-  <img alt="Top Languages" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=the-cross-art&layout=compact&theme=default&hide_border=true" height="165"/>
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=the-cross-art&theme=tokyonight&hide_border=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=the-cross-art&theme=default&hide_border=true">
-  <img alt="GitHub Streak" src="https://streak-stats.demolab.com?user=the-cross-art&theme=default&hide_border=true" height="165"/>
-</picture>
-
-</div>
 
 ## Education
 
