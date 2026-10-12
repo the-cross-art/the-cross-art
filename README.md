@@ -4,14 +4,21 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&pause=1200&color=58A6FF&center=true&vCenter=true&width=650&lines=AI+Applied+Engineer+II+%40+QuillBot+(Learneo);Building+GPU+Inference+Infra+at+Scale;LLM+Serving+%C2%B7+vLLM+%C2%B7+SGLang+%C2%B7+Triton;Civil+Engineer+%E2%86%92+ML+Systems+Engineer)](https://meimran.netlify.app/)
 
+**AI Applied Engineer · LLM Serving · GPU Inference Infrastructure**
+
+I build and operate the infrastructure that serves LLMs in production, and work upstream on the inference stacks that run them.
+
+<p>
+  <img alt="Profile views" src="https://komarev.com/ghpvc/?username=the-cross-art" />
+  <a href="https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse"><img alt="Merged upstream PRs" src="https://img.shields.io/badge/Merged_upstream_PRs-2-2ea44f" /></a>
+  <img alt="Users served" src="https://img.shields.io/badge/Serving-50M%2B_users-2ea44f" />
+  <img alt="Focus" src="https://img.shields.io/badge/Focus-LLM_Inference_%26_ML_Platform-8A2BE2" />
+</p>
+
 [![Portfolio](https://img.shields.io/badge/Portfolio-meimran.netlify.app-0A0A0A?style=flat-square&logo=vercel&logoColor=white)](https://meimran.netlify.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-the--cross--art-0A0A0A?style=flat-square&logo=github&logoColor=white)](https://github.com/the-cross-art)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-meimran-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/meimran/)
 [![Medium](https://img.shields.io/badge/Medium-%40imrannaz326-12100E?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@imrannaz326)
 [![Email](https://img.shields.io/badge/Email-imrannaz326%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:imrannaz326@gmail.com)
-
-[![Merged Upstream PRs](https://img.shields.io/badge/Merged_Upstream_PRs-2-2EA44F?style=flat-square&logo=github&logoColor=white)](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse)
-![Profile Views](https://komarev.com/ghpvc/?username=the-cross-art&color=58A6FF&style=flat-square&label=Profile+Views)
 
 </div>
 
@@ -28,39 +35,76 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 - **ML systems architecture** — designing platforms that stay reliable under production load
 - **Kubernetes-native orchestration** for asynchronous, high-throughput inference workloads
 
-## Open Source Contributions
+## Open Source
 
-While adding UMT5 inference support to CTranslate2, I hit a numerical mismatch against Hugging Face's output — tracing it to its root cause meant fixing a bug upstream in `transformers` itself, closing the loop across both projects.
+<div align="center">
+<table width="100%">
+  <tr>
+    <td width="84" align="center" valign="middle">
+      <a href="https://github.com/huggingface/transformers/pull/49135"><img src="https://avatars.githubusercontent.com/u/25720743?v=4" width="52" height="52" alt="Hugging Face official GitHub avatar" /></a>
+    </td>
+    <td valign="top">
+      <b>Hugging Face · transformers</b><br/>
+      <sub>Attention correctness · SDPA · seq2seq training</sub><br/>
+      UMT5 decoder causality fix · root-cause trace · regression tests<br/>
+      <a href="https://github.com/huggingface/transformers/pull/49135"><b>View work →</b></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="84" align="center" valign="middle">
+      <a href="https://github.com/OpenNMT/CTranslate2/pull/2103"><img src="https://avatars.githubusercontent.com/u/23035727?v=4" width="52" height="52" alt="OpenNMT official GitHub avatar" /></a>
+    </td>
+    <td valign="top">
+      <b>OpenNMT · CTranslate2</b><br/>
+      <sub>Inference runtime · model conversion · C++</sub><br/>
+      UMT5 support · per-layer attention bias · validated on a 2.9B checkpoint<br/>
+      <a href="https://github.com/OpenNMT/CTranslate2/pull/2103"><b>View work →</b></a>
+    </td>
+  </tr>
+</table>
+</div>
 
 <details>
-<summary><b>🤗 huggingface/transformers</b> — fixed UMT5 decoder self-attention not being causal (<a href="https://github.com/huggingface/transformers/pull/49135">#49135</a>)</summary>
-<br>
+<summary><b>Selected upstream impact — PR evidence</b></summary>
 
-- **Problem:** `UMT5LayerSelfAttention` never passed `is_causal` to `UMT5Attention`, so under SDPA the decoder's self-attention wasn't causal — during full-sequence teacher forcing (the path `Seq2SeqTrainer` uses by default), the decoder could attend to future tokens.
-- **Root cause:** introduced in #47014, which moved the T5 family to SDPA and added the `is_causal` parameter without wiring up the call sites.
-- **Fix:** pass `is_causal=config.is_decoder` as T5/MT5 already do, and explicitly set `is_causal=False` on cross-attention. Added regression tests covering the `is_causal` flag and position-0 logit stability.
-- **Verified impact:** logit drift at position 0 dropped from ~1.03e-1 to ~1.91e-6, matching the last known-good release (v5.14.1) — the bug had silently affected every UMT5 model trained/evaluated via the default `Seq2SeqTrainer` path since v5.15.
-- Merged into `main`.
+| Project | Contribution | Product / user impact |
+| --- | --- | --- |
+| **transformers** | [#49135](https://github.com/huggingface/transformers/pull/49135) — UMT5 decoder self-attention was not causal under SDPA | Restored causality for every UMT5 model trained or evaluated through the default `Seq2SeqTrainer` path; position-0 logit drift fell from ~1.03e-1 to ~1.91e-6 |
+| **CTranslate2** | [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — UMT5 inference support via per-layer relative attention bias | Made UMT5 servable on CTranslate2 for the first time, closing a 2+ year feature request with byte-identical output for existing T5/mT5 conversions |
 
-[View the PR →](https://github.com/huggingface/transformers/pull/49135)
+**transformers [#49135](https://github.com/huggingface/transformers/pull/49135) — fix UMT5 decoder self-attention not being causal**
+
+- **Problem:** `UMT5LayerSelfAttention` never passed `is_causal` to `UMT5Attention`. Under SDPA the causal mask is skipped when there is no padding, so during full-sequence teacher forcing — the path `DataCollatorForSeq2Seq` and `Seq2SeqTrainer` produce by default — the decoder could attend to future positions. `generate()` was unaffected, since it decodes one position at a time.
+- **Root cause:** introduced in [#47014](https://github.com/huggingface/transformers/pull/47014), which moved the T5 family to SDPA and added the `is_causal` parameter without updating the call sites. v5.14.1 was correct; v5.15.0 onward was not.
+- **Fix:** pass `is_causal=config.is_decoder` as T5/MT5 already do, and set `is_causal=False` explicitly on cross-attention. Added regression tests for the `is_causal` flag across all three attention types and for position-0 logit stability.
+- **Verified:** log-probability drift at position 0 dropped from ~1.03e-1 to ~1.91e-6, matching the last known-good release.
+- Merged into `main`; filed as [#49134](https://github.com/huggingface/transformers/issues/49134).
+
+**CTranslate2 [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — add UMT5 support (per-layer relative attention bias)**
+
+- **Problem:** CTranslate2 could not convert UMT5. Unlike T5/mT5, which compute a relative attention bias at layer 0 and share it, UMT5 gives every self-attention layer its own bias table — a layout neither the converter nor the runtime stacks supported.
+- **Fix:** added a `UMT5Loader` that preserves per-layer bias tables and overrides `get_vocabulary` so `<extra_id_*>` sentinels are not duplicated, and taught the encoder/decoder stacks to select a per-layer bias path only for models that need it — detected by pointer identity on aliased variables, so no config flag or model-format change was required.
+- **Context:** closed a 2+ year-old request ([#1478](https://github.com/OpenNMT/CTranslate2/issues/1478)) that had stalled because the obvious fix risked slowing existing T5/mT5 models. `t5-small` `model.bin` is byte-identical before and after the converter change.
+- **Verified:** added runtime regression tests using distinct, non-constant bias tables per stack, which fail when the runtime is forced to share layer 0's bias; validated end-to-end on a 2.9B-parameter UMT5 checkpoint on an NVIDIA L4.
+- Merged into `master`. The parity gap that surfaced during review is what led to the `transformers` fix above.
 
 </details>
 
-<details>
-<summary><b>OpenNMT/CTranslate2</b> — added UMT5 inference support (<a href="https://github.com/OpenNMT/CTranslate2/pull/2103">#2103</a>)</summary>
-<br>
+> **Current footprint:** 2 merged PRs across 2 upstream inference projects — one correctness fix, one new model family — both traced from a single numerical discrepancy.
+> I care about landing changes maintainers can trust more than PR volume.
 
-- **Problem:** CTranslate2 couldn't convert UMT5 checkpoints. Unlike T5/mT5, UMT5 gives every self-attention layer its own relative-attention-bias table instead of sharing one computed at layer 0 — a layout the converter and runtime didn't support.
-- **Fix:** added a `UMT5Loader` that preserves per-layer bias tables and avoids duplicating `<extra_id_*>` sentinel tokens, and updated the encoder/decoder stacks to pick a per-layer bias path only when a model needs it — detected via pointer identity, so existing T5/mT5 conversions are byte-identical before and after.
-- **Context:** closed a 2+ year-old open feature request (#1478) that had stalled because the obvious fix risked slowing down existing T5/mT5 models.
-- **Verification:** added runtime regression tests with distinct bias tables per stack, and validated end-to-end on a 2.9B-parameter UMT5 checkpoint on an NVIDIA L4. The numerical mismatch that led here traced back to the `transformers` bug above, fixed in #49135.
-- Merged into `master`.
+## How I Contribute
 
-[View the PR →](https://github.com/OpenNMT/CTranslate2/pull/2103)
-
-</details>
-
-**How I contribute:** trace numerical discrepancies to their root cause instead of patching symptoms · back fixes with reproducible, quantitative evidence · keep changes narrowly scoped and backward-compatible.
+<table width="100%">
+  <tr>
+    <td width="50%" valign="top"><b>Root cause over symptom</b><br/><sub>Trace a numerical mismatch to the line that causes it, even across repos.</sub></td>
+    <td width="50%" valign="top"><b>Evidence before claims</b><br/><sub>Quantify the before/after and pin the first bad commit.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><b>Narrow, reversible diffs</b><br/><sub>Keep existing models bit-identical; no config flags or format changes.</sub></td>
+    <td width="50%" valign="top"><b>Tests that would have caught it</b><br/><sub>Regression tests that fail on the old behavior, not just pass on the new.</sub></td>
+  </tr>
+</table>
 
 ## Tech Stack
 
@@ -82,21 +126,18 @@ While adding UMT5 inference support to CTranslate2, I hit a numerical mismatch a
 
 **Languages**
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 
-## Contribution Activity
+## Contributions
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/output/github-contribution-grid-snake.svg">
-  <img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/the-cross-art/the-cross-art/output/github-contribution-grid-snake.svg" width="100%"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/main/dist/github-snake-dark.svg" />
+  <img alt="Contribution grid snake" src="https://raw.githubusercontent.com/the-cross-art/the-cross-art/main/dist/github-snake.svg" />
 </picture>
 
 ## Education
 
 **B.Tech, Civil Engineering** — BIT Sindri, Dhanbad · 2019–2023 · CGPA 8.99
-
-## Connect
 
 <div align="center">
 
