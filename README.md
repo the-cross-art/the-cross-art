@@ -10,6 +10,9 @@
 [![Medium](https://img.shields.io/badge/Medium-%40imrannaz326-12100E?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@imrannaz326)
 [![Email](https://img.shields.io/badge/Email-imrannaz326%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:imrannaz326@gmail.com)
 
+[![Merged Upstream PRs](https://img.shields.io/badge/Merged_Upstream_PRs-2-2EA44F?style=flat-square&logo=github&logoColor=white)](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse)
+![Profile Views](https://komarev.com/ghpvc/?username=the-cross-art&color=58A6FF&style=flat-square&label=Profile+Views)
+
 </div>
 
 ## About
@@ -30,6 +33,17 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 - **Rengoku** — a production Kubernetes sidecar for asynchronous LLM inference, processing 5,000+ pages per batch
 - A **RAG system** with LangGraph-based stateful reasoning
 - A **medallion lakehouse pipeline** on Databricks for large-scale data curation
+
+## Open-Source Impact
+
+While adding UMT5 inference support to CTranslate2, I hit a numerical mismatch against Hugging Face's output — tracing it to its root cause meant fixing a bug upstream in `transformers` itself, closing the loop across both projects.
+
+| Project | Contribution | Impact |
+|---|---|---|
+| [🤗 transformers](https://github.com/huggingface/transformers) | [#49135](https://github.com/huggingface/transformers/pull/49135) — fixed UMT5 decoder self-attention not being causal under SDPA | Root-caused a correctness regression (introduced in #47014) silently affecting `Seq2SeqTrainer`-based training/eval for every UMT5 model since v5.15; verified fix cut logit drift from ~1e-1 to ~2e-6 |
+| [OpenNMT / CTranslate2](https://github.com/OpenNMT/CTranslate2) | [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — added UMT5 inference support (per-layer relative attention bias) | Closed a 2+ year open feature request by detecting per-layer vs. shared bias layout at conversion time, with zero regression to existing T5/mT5 models; validated on a 2.9B-parameter checkpoint |
+
+**How I contribute:** trace numerical discrepancies to their root cause instead of patching symptoms · back fixes with reproducible, quantitative evidence · keep changes narrowly scoped and backward-compatible.
 
 ## Tech Stack
 
@@ -85,7 +99,5 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 <div align="center">
 
 [![Portfolio](https://img.shields.io/badge/Read_more_at_meimran.netlify.app-black?style=for-the-badge&logo=vercel&logoColor=white)](https://meimran.netlify.app/)
-
-![Profile Views](https://komarev.com/ghpvc/?username=the-cross-art&color=58A6FF&style=flat-square&label=Profile+Views)
 
 </div>
