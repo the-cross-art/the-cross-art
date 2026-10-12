@@ -9,7 +9,6 @@
 I build and operate the infrastructure that serves LLMs in production, and work upstream on the inference stacks that run them.
 
 <p>
-  <img alt="Profile views" src="https://komarev.com/ghpvc/?username=the-cross-art" />
   <a href="https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse"><img alt="Merged upstream PRs" src="https://img.shields.io/badge/Merged_upstream_PRs-2-2ea44f" /></a>
   <img alt="Users served" src="https://img.shields.io/badge/Serving-50M%2B_users-2ea44f" />
   <img alt="Focus" src="https://img.shields.io/badge/Focus-LLM_Inference_%26_ML_Platform-8A2BE2" />
@@ -46,7 +45,7 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
     <td valign="top">
       <b>Hugging Face · transformers</b><br/>
       <sub>Attention correctness · SDPA · seq2seq training</sub><br/>
-      UMT5 decoder causality fix · root-cause trace · regression tests<br/>
+      Decoder causality fix · root-cause trace · regression tests<br/>
       <a href="https://github.com/huggingface/transformers/pull/49135"><b>View work →</b></a>
     </td>
   </tr>
