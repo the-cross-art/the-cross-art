@@ -28,38 +28,37 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 - **ML systems architecture** — designing platforms that stay reliable under production load
 - **Kubernetes-native orchestration** for asynchronous, high-throughput inference workloads
 
-## Featured Collaborations
+## Open Source Contributions
 
 While adding UMT5 inference support to CTranslate2, I hit a numerical mismatch against Hugging Face's output — tracing it to its root cause meant fixing a bug upstream in `transformers` itself, closing the loop across both projects.
 
-<table>
-<tr>
-<td width="72" align="center"><img src="https://github.com/huggingface.png" width="56" height="56"/></td>
-<td>
+<details>
+<summary><b>🤗 huggingface/transformers</b> — fixed UMT5 decoder self-attention not being causal (<a href="https://github.com/huggingface/transformers/pull/49135">#49135</a>)</summary>
+<br>
 
-**🤗 Hugging Face — `transformers`**  
-*Correctness · SDPA attention · seq2seq training*
+- **Problem:** `UMT5LayerSelfAttention` never passed `is_causal` to `UMT5Attention`, so under SDPA the decoder's self-attention wasn't causal — during full-sequence teacher forcing (the path `Seq2SeqTrainer` uses by default), the decoder could attend to future tokens.
+- **Root cause:** introduced in #47014, which moved the T5 family to SDPA and added the `is_causal` parameter without wiring up the call sites.
+- **Fix:** pass `is_causal=config.is_decoder` as T5/MT5 already do, and explicitly set `is_causal=False` on cross-attention. Added regression tests covering the `is_causal` flag and position-0 logit stability.
+- **Verified impact:** logit drift at position 0 dropped from ~1.03e-1 to ~1.91e-6, matching the last known-good release (v5.14.1) — the bug had silently affected every UMT5 model trained/evaluated via the default `Seq2SeqTrainer` path since v5.15.
+- Merged into `main`.
 
-Fixed a decoder self-attention bug in UMT5 that silently broke causality under SDPA — a regression affecting `Seq2SeqTrainer`-based training/eval for every UMT5 model since v5.15. Verified fix cut logit drift from ~1e-1 to ~2e-6.
+[View the PR →](https://github.com/huggingface/transformers/pull/49135)
 
-[View work →](https://github.com/huggingface/transformers/pull/49135)
+</details>
 
-</td>
-</tr>
-<tr>
-<td width="72" align="center"><img src="https://github.com/OpenNMT.png" width="56" height="56"/></td>
-<td>
+<details>
+<summary><b>OpenNMT/CTranslate2</b> — added UMT5 inference support (<a href="https://github.com/OpenNMT/CTranslate2/pull/2103">#2103</a>)</summary>
+<br>
 
-**OpenNMT — `CTranslate2`**  
-*Inference runtime · model conversion · C++*
+- **Problem:** CTranslate2 couldn't convert UMT5 checkpoints. Unlike T5/mT5, UMT5 gives every self-attention layer its own relative-attention-bias table instead of sharing one computed at layer 0 — a layout the converter and runtime didn't support.
+- **Fix:** added a `UMT5Loader` that preserves per-layer bias tables and avoids duplicating `<extra_id_*>` sentinel tokens, and updated the encoder/decoder stacks to pick a per-layer bias path only when a model needs it — detected via pointer identity, so existing T5/mT5 conversions are byte-identical before and after.
+- **Context:** closed a 2+ year-old open feature request (#1478) that had stalled because the obvious fix risked slowing down existing T5/mT5 models.
+- **Verification:** added runtime regression tests with distinct bias tables per stack, and validated end-to-end on a 2.9B-parameter UMT5 checkpoint on an NVIDIA L4. The numerical mismatch that led here traced back to the `transformers` bug above, fixed in #49135.
+- Merged into `master`.
 
-Added UMT5 inference support by detecting per-layer vs. shared relative-attention-bias layout at conversion time — closing a 2+ year open feature request with zero regression to existing T5/mT5 models. Validated on a 2.9B-parameter checkpoint.
+[View the PR →](https://github.com/OpenNMT/CTranslate2/pull/2103)
 
-[View work →](https://github.com/OpenNMT/CTranslate2/pull/2103)
-
-</td>
-</tr>
-</table>
+</details>
 
 **How I contribute:** trace numerical discrepancies to their root cause instead of patching symptoms · back fixes with reproducible, quantitative evidence · keep changes narrowly scoped and backward-compatible.
 
@@ -84,6 +83,14 @@ Added UMT5 inference support by detecting per-layer vs. shared relative-attentio
 **Languages**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+
+## Contribution Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/output/github-contribution-grid-snake.svg">
+  <img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/the-cross-art/the-cross-art/output/github-contribution-grid-snake.svg" width="100%"/>
+</picture>
 
 ## Education
 
