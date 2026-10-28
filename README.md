@@ -6,12 +6,6 @@
 
 **AI Applied Engineer · LLM Serving · GPU Inference Infrastructure**
 
-<p>
-  <a href="https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse"><img alt="Merged upstream PRs" src="https://img.shields.io/badge/Merged_upstream_PRs-3-2ea44f" /></a>
-  <img alt="Users served" src="https://img.shields.io/badge/Serving-50M%2B_users-2ea44f" />
-  <img alt="Focus" src="https://img.shields.io/badge/Focus-LLM_Inference_%26_ML_Platform-8A2BE2" />
-</p>
-
 [![Portfolio](https://img.shields.io/badge/Portfolio-meimran.netlify.app-0A0A0A?style=flat-square&logo=vercel&logoColor=white)](https://meimran.netlify.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-meimran-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/meimran/)
 [![Medium](https://img.shields.io/badge/Medium-%40imrannaz326-12100E?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@imrannaz326)
@@ -108,9 +102,3 @@ AI Applied Engineer at QuillBot (Learneo), where the inference infrastructure I 
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/main/dist/github-snake-dark.svg" />
   <img alt="Contribution grid snake" src="https://raw.githubusercontent.com/the-cross-art/the-cross-art/main/dist/github-snake.svg" />
 </picture>
-
-<div align="center">
-
-[![Portfolio](https://img.shields.io/badge/Read_more_at_meimran.netlify.app-black?style=for-the-badge&logo=vercel&logoColor=white)](https://meimran.netlify.app/)
-
-</div>
