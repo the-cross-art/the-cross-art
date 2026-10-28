@@ -13,10 +13,6 @@
 
 </div>
 
-## About
-
-AI Applied Engineer at QuillBot (Learneo), where the inference infrastructure I work on serves **50M+ users**. I came to ML systems from civil engineering (B.Tech, BIT Sindri, 2023) through self-directed study, and now work on GPU inference internals, LLM serving, and the platforms around them — including upstream, in the inference stacks themselves.
-
 ## Research & Focus Areas
 
 - **LLM serving at scale** — throughput/latency trade-offs across vLLM, SGLang, and Triton Inference Server
