@@ -9,7 +9,7 @@
 I build and operate the infrastructure that serves LLMs in production, and work upstream on the inference stacks that run them.
 
 <p>
-  <a href="https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse"><img alt="Merged upstream PRs" src="https://img.shields.io/badge/Merged_upstream_PRs-2-2ea44f" /></a>
+  <a href="https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse"><img alt="Merged upstream PRs" src="https://img.shields.io/badge/Merged_upstream_PRs-3-2ea44f" /></a>
   <img alt="Users served" src="https://img.shields.io/badge/Serving-50M%2B_users-2ea44f" />
   <img alt="Focus" src="https://img.shields.io/badge/Focus-LLM_Inference_%26_ML_Platform-8A2BE2" />
 </p>
@@ -40,6 +40,17 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 <table width="100%">
   <tr>
     <td width="84" align="center" valign="middle">
+      <a href="https://github.com/vllm-project/vllm-metal/pull/1182"><img src="https://avatars.githubusercontent.com/u/136984999?v=4" width="52" height="52" alt="vLLM official GitHub avatar" /></a>
+    </td>
+    <td valign="top">
+      <b>vLLM · vllm-metal</b><br/>
+      <sub>Multimodal serving · MLX/Metal · paged attention</sub><br/>
+      LFM2-VL image input · vision-tower adapter · first-token parity<br/>
+      <a href="https://github.com/vllm-project/vllm-metal/pull/1182"><b>View work →</b></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="84" align="center" valign="middle">
       <a href="https://github.com/huggingface/transformers/pull/49135"><img src="https://avatars.githubusercontent.com/u/25720743?v=4" width="52" height="52" alt="Hugging Face official GitHub avatar" /></a>
     </td>
     <td valign="top">
@@ -68,8 +79,17 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 
 | Project | Contribution | Product / user impact |
 | --- | --- | --- |
+| **vllm-metal** | [#1182](https://github.com/vllm-project/vllm-metal/pull/1182) — LFM2-VL image input on the paged path | `LFM2.5-VL-*` served text-only and silently dropped images; now served end-to-end on Apple Silicon with EXACT first-token parity against native mlx-vlm |
 | **transformers** | [#49135](https://github.com/huggingface/transformers/pull/49135) — UMT5 decoder self-attention was not causal under SDPA | Restored causality for every UMT5 model trained or evaluated through the default `Seq2SeqTrainer` path; position-0 logit drift fell from ~1.03e-1 to ~1.91e-6 |
 | **CTranslate2** | [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — UMT5 inference support via per-layer relative attention bias | Made UMT5 servable on CTranslate2 for the first time, closing a 2+ year feature request with byte-identical output for existing T5/mT5 conversions |
+
+**vllm-metal [#1182](https://github.com/vllm-project/vllm-metal/pull/1182) — serve LFM2-VL image input on the paged path**
+
+- **Problem:** `LFM2.5-VL-*` checkpoints served text-only. The vision tower was never reached, so image prompts silently lost their images instead of failing — the LFM family was absent from the multimodal support matrix entirely.
+- **Fix:** a new multimodal adapter over `mlx_vlm` that resolves the text tower and token embeddings at load, encodes image features, and places them via the model's `image_token_index` mask. Dispatch matches both the `lfm2-vl` and `lfm2_vl` spellings plus the architecture name — the hyphen variant fails inside `AutoConfig` before dispatch is reached, which surfaced from running the smoke tool rather than reading configs.
+- **Design:** LFM2 uses plain 1-D RoPE, so the adapter declines to supply segment positions and preserves the batched decode RoPE path — none of the mRoPE `(cos, sin)` plumbing a prior VL model needed applies here. Per-tile attention masks are derived from `spatial_shapes` instead of repacking pixels, keeping the change inside the adapter, and text-only batches keep the plain paged text path untouched.
+- **Verified:** first-token parity against native mlx-vlm was EXACT on `LFM2.5-VL-1.6B` (KL ≈ 1.2e-3, matching top-1 token), reproduced with byte-identical numbers on a second independent setup; 28 new unit tests, dispatch tests parametrised over both spellings, `ruff` and `mypy` clean.
+- Merged into `main` (+608/−2 across 10 files). Two blockers outside the branch were documented rather than silently worked around: vLLM's own `torch.Tensor is required for multiple slices` assertion on NumPy multimodal fields, and MLX checkpoints packaged for mlx-vlm rather than Transformers.
 
 **transformers [#49135](https://github.com/huggingface/transformers/pull/49135) — fix UMT5 decoder self-attention not being causal**
 
@@ -89,7 +109,7 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 
 </details>
 
-> **Current footprint:** 2 merged PRs across 2 upstream inference projects — one correctness fix, one new model family — both traced from a single numerical discrepancy.
+> **Current footprint:** 3 merged PRs across 3 upstream inference projects — an attention correctness fix in `transformers`, a new model family in CTranslate2, and multimodal serving in vLLM's Metal backend.
 > I care about landing changes maintainers can trust more than PR volume.
 
 ## How I Contribute
