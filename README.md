@@ -6,8 +6,6 @@
 
 **AI Applied Engineer · LLM Serving · GPU Inference Infrastructure**
 
-I build and operate the infrastructure that serves LLMs in production, and work upstream on the inference stacks that run them.
-
 <p>
   <a href="https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3Athe-cross-art+archived%3Afalse"><img alt="Merged upstream PRs" src="https://img.shields.io/badge/Merged_upstream_PRs-3-2ea44f" /></a>
   <img alt="Users served" src="https://img.shields.io/badge/Serving-50M%2B_users-2ea44f" />
@@ -23,9 +21,7 @@ I build and operate the infrastructure that serves LLMs in production, and work 
 
 ## About
 
-I design and operate the infrastructure that serves LLMs at production scale — currently supporting **50M+ users** as an AI Applied Engineer at QuillBot (Learneo). My work sits at the intersection of GPU inference internals, distributed systems, and ML platform engineering.
-
-Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into ML systems through self-directed study and have since focused on the operational side of AI: making inference fast, reliable, and cheap at scale.
+AI Applied Engineer at QuillBot (Learneo), where the inference infrastructure I work on serves **50M+ users**. I came to ML systems from civil engineering (B.Tech, BIT Sindri, 2023) through self-directed study, and now work on GPU inference internals, LLM serving, and the platforms around them — including upstream, in the inference stacks themselves.
 
 ## Research & Focus Areas
 
@@ -79,38 +75,11 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 
 | Project | Contribution | Product / user impact |
 | --- | --- | --- |
-| **vllm-metal** | [#1182](https://github.com/vllm-project/vllm-metal/pull/1182) — LFM2-VL image input on the paged path | `LFM2.5-VL-*` served text-only and silently dropped images; now served end-to-end on Apple Silicon with EXACT first-token parity against native mlx-vlm |
-| **transformers** | [#49135](https://github.com/huggingface/transformers/pull/49135) — UMT5 decoder self-attention was not causal under SDPA | Restored causality for every UMT5 model trained or evaluated through the default `Seq2SeqTrainer` path; position-0 logit drift fell from ~1.03e-1 to ~1.91e-6 |
-| **CTranslate2** | [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — UMT5 inference support via per-layer relative attention bias | Made UMT5 servable on CTranslate2 for the first time, closing a 2+ year feature request with byte-identical output for existing T5/mT5 conversions |
-
-**vllm-metal [#1182](https://github.com/vllm-project/vllm-metal/pull/1182) — serve LFM2-VL image input on the paged path**
-
-- **Problem:** `LFM2.5-VL-*` checkpoints served text-only. The vision tower was never reached, so image prompts silently lost their images instead of failing — the LFM family was absent from the multimodal support matrix entirely.
-- **Fix:** a new multimodal adapter over `mlx_vlm` that resolves the text tower and token embeddings at load, encodes image features, and places them via the model's `image_token_index` mask. Dispatch matches both the `lfm2-vl` and `lfm2_vl` spellings plus the architecture name — the hyphen variant fails inside `AutoConfig` before dispatch is reached, which surfaced from running the smoke tool rather than reading configs.
-- **Design:** LFM2 uses plain 1-D RoPE, so the adapter declines to supply segment positions and preserves the batched decode RoPE path — none of the mRoPE `(cos, sin)` plumbing a prior VL model needed applies here. Per-tile attention masks are derived from `spatial_shapes` instead of repacking pixels, keeping the change inside the adapter, and text-only batches keep the plain paged text path untouched.
-- **Verified:** first-token parity against native mlx-vlm was EXACT on `LFM2.5-VL-1.6B` (KL ≈ 1.2e-3, matching top-1 token), reproduced with byte-identical numbers on a second independent setup; 28 new unit tests, dispatch tests parametrised over both spellings, `ruff` and `mypy` clean.
-- Merged into `main` (+608/−2 across 10 files). Two blockers outside the branch were documented rather than silently worked around: vLLM's own `torch.Tensor is required for multiple slices` assertion on NumPy multimodal fields, and MLX checkpoints packaged for mlx-vlm rather than Transformers.
-
-**transformers [#49135](https://github.com/huggingface/transformers/pull/49135) — fix UMT5 decoder self-attention not being causal**
-
-- **Problem:** `UMT5LayerSelfAttention` never passed `is_causal` to `UMT5Attention`. Under SDPA the causal mask is skipped when there is no padding, so during full-sequence teacher forcing — the path `DataCollatorForSeq2Seq` and `Seq2SeqTrainer` produce by default — the decoder could attend to future positions. `generate()` was unaffected, since it decodes one position at a time.
-- **Root cause:** introduced in [#47014](https://github.com/huggingface/transformers/pull/47014), which moved the T5 family to SDPA and added the `is_causal` parameter without updating the call sites. v5.14.1 was correct; v5.15.0 onward was not.
-- **Fix:** pass `is_causal=config.is_decoder` as T5/MT5 already do, and set `is_causal=False` explicitly on cross-attention. Added regression tests for the `is_causal` flag across all three attention types and for position-0 logit stability.
-- **Verified:** log-probability drift at position 0 dropped from ~1.03e-1 to ~1.91e-6, matching the last known-good release.
-- Merged into `main`; filed as [#49134](https://github.com/huggingface/transformers/issues/49134).
-
-**CTranslate2 [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — add UMT5 support (per-layer relative attention bias)**
-
-- **Problem:** CTranslate2 could not convert UMT5. Unlike T5/mT5, which compute a relative attention bias at layer 0 and share it, UMT5 gives every self-attention layer its own bias table — a layout neither the converter nor the runtime stacks supported.
-- **Fix:** added a `UMT5Loader` that preserves per-layer bias tables and overrides `get_vocabulary` so `<extra_id_*>` sentinels are not duplicated, and taught the encoder/decoder stacks to select a per-layer bias path only for models that need it — detected by pointer identity on aliased variables, so no config flag or model-format change was required.
-- **Context:** closed a 2+ year-old request ([#1478](https://github.com/OpenNMT/CTranslate2/issues/1478)) that had stalled because the obvious fix risked slowing existing T5/mT5 models. `t5-small` `model.bin` is byte-identical before and after the converter change.
-- **Verified:** added runtime regression tests using distinct, non-constant bias tables per stack, which fail when the runtime is forced to share layer 0's bias; validated end-to-end on a 2.9B-parameter UMT5 checkpoint on an NVIDIA L4.
-- Merged into `master`. The parity gap that surfaced during review is what led to the `transformers` fix above.
+| **vllm-metal** | [#1182](https://github.com/vllm-project/vllm-metal/pull/1182) — LFM2-VL image input on the paged path | `LFM2.5-VL-*` served text-only and silently dropped images. Now served end-to-end on Apple Silicon with EXACT first-token parity against native mlx-vlm, reproduced on a second independent setup |
+| **transformers** | [#49135](https://github.com/huggingface/transformers/pull/49135) — UMT5 decoder self-attention was not causal under SDPA | The decoder could attend to future positions during teacher forcing, silently affecting every UMT5 model trained through the default `Seq2SeqTrainer` path. Position-0 logit drift fell from ~1e-1 to ~2e-6 |
+| **CTranslate2** | [#2103](https://github.com/OpenNMT/CTranslate2/pull/2103) — UMT5 inference support via per-layer relative attention bias | Made UMT5 servable for the first time, closing a 2+ year feature request, with existing T5/mT5 conversions left byte-identical |
 
 </details>
-
-> **Current footprint:** 3 merged PRs across 3 upstream inference projects — an attention correctness fix in `transformers`, a new model family in CTranslate2, and multimodal serving in vLLM's Metal backend.
-> I care about landing changes maintainers can trust more than PR volume.
 
 ## How I Contribute
 
@@ -127,25 +96,11 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
 
 ## Tech Stack
 
-**LLM Serving & Inference**
-
-![vLLM](https://img.shields.io/badge/vLLM-000000?style=flat-square) ![SGLang](https://img.shields.io/badge/SGLang-000000?style=flat-square) ![Triton Inference Server](https://img.shields.io/badge/Triton_Inference_Server-76B900?style=flat-square&logo=nvidia&logoColor=white) ![Ray Serve](https://img.shields.io/badge/Ray_Serve-028CF0?style=flat-square&logo=ray&logoColor=white) ![SageMaker](https://img.shields.io/badge/SageMaker-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
-
-**Orchestration & Infrastructure**
-
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white) ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-
-**Data Engineering**
-
-![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white) ![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white) ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white) ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat-square&logo=databricks&logoColor=white) ![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
-
-**ML / AI**
-
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black) ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square) ![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square) ![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white)
-
-**Languages**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+**Serving** · vLLM · SGLang · Triton Inference Server · Ray Serve · SageMaker
+**Infrastructure** · Kubernetes · Docker · Helm · Terraform · AWS · GitHub Actions
+**Data** · Spark · Kafka · Airflow · Databricks · Snowflake
+**ML** · PyTorch · Hugging Face · LangGraph · MLflow
+**Languages** · Python · SQL · C++ · TypeScript · Bash
 
 ## Contributions
 
@@ -153,10 +108,6 @@ Trained originally as a civil engineer (B.Tech, BIT Sindri, 2023), I moved into 
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/the-cross-art/the-cross-art/main/dist/github-snake-dark.svg" />
   <img alt="Contribution grid snake" src="https://raw.githubusercontent.com/the-cross-art/the-cross-art/main/dist/github-snake.svg" />
 </picture>
-
-## Education
-
-**B.Tech, Civil Engineering** — BIT Sindri, Dhanbad · 2019–2023 · CGPA 8.99
 
 <div align="center">
 
