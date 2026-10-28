@@ -84,14 +84,6 @@
   </tr>
 </table>
 
-## Tech Stack
-
-**Serving** · vLLM · SGLang · Triton Inference Server · Ray Serve · SageMaker
-**Infrastructure** · Kubernetes · Docker · Helm · Terraform · AWS · GitHub Actions
-**Data** · Spark · Kafka · Airflow · Databricks · Snowflake
-**ML** · PyTorch · Hugging Face · LangGraph · MLflow
-**Languages** · Python · SQL · C++ · TypeScript · Bash
-
 ## Contributions
 
 <picture>
